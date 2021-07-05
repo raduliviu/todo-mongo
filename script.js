@@ -22,18 +22,27 @@ const itemToggle = (index) => {
     renderTask()
 }
 
+function editTask(index) {
+    let task = prompt("Change the task:")
+    let toDo = toDos[index]
+    toDo.value = task
+    renderTask()
+
+    console.log(task)
+}
+
 function renderTask() {
     toDoListElement.innerHTML = ''
     toDos.forEach(
         (task, index) => {
             const checked = task.done ? 'checked' : ''
             const taskClass = task.done ? 'done' : ''
-            
+
             toDoListElement.innerHTML += `
             <div class='taskItem ${taskClass}'>
                 <input type='checkbox' ${checked} onclick="itemToggle(${index})">
                 ${task.value}
-                <button type='button' value='Edit'>Edit</button>
+                <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
                 <button type='button' value='Delete'>Delete</button>
             </div>
         `
