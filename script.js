@@ -25,9 +25,30 @@ const itemToggle = (index) => {
 function editTask(index) {
     let task = prompt("Change the task:")
     let toDo = toDos[index]
+    if (input === null) {
+        return;
+    }
+    else if (task !=="") {
     toDo.value = task
+}
     renderTask()
 }
+
+function createTask() {
+    let task = prompt("Add your new task")
+    let toDoX = {
+        done: false,
+        value: task
+    }
+    if (input === null) {
+        return;
+    }
+    else if (task !==""){
+        toDos.push(toDoX)
+    } 
+    renderTask()
+}
+
 
 function deleteTask(index) {
 
