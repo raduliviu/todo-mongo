@@ -1,4 +1,5 @@
 const toDoListElement = document.getElementById("toDoList")
+const doneListElement = document.getElementById("doneTasks")
 
 const toDos = [
     toDo1 = {
@@ -34,6 +35,11 @@ function editTask(index) {
     renderTask()
 }
 
+function done() {
+renderTask(toDos)
+doneTask(doneT)
+}
+
 function createTask() {
     let task = prompt("Add your new task")
     let toDoX = {
@@ -66,7 +72,28 @@ function renderTask() {
 
             toDoListElement.innerHTML += `
             <div class='taskItem ${taskClass}'>
-                <input type='checkbox' ${checked} onclick="itemToggle(${index})">
+                <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
+                ${task.value}
+                <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
+                <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+            </div>
+        `
+        }
+    )
+}
+let doneT = toDos.filter(toDo => toDo.done === true)
+
+function doneTask() {
+    doneT = toDos.filter(toDo => toDo.done === true)
+    doneListElement.innerHTML = ''
+    doneT.forEach(
+        (task, index) => {
+            const checked = task.done ? 'checked' : ''
+            const taskClass = task.done ? 'done' : ''
+            
+            doneListElement.innerHTML += `
+            <div class='taskItem ${taskClass}'>
+                <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
                 ${task.value}
                 <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
                 <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
@@ -77,3 +104,4 @@ function renderTask() {
 }
 
 renderTask(toDos)
+doneTask(doneT)
