@@ -27,8 +27,14 @@ function editTask(index) {
     let toDo = toDos[index]
     toDo.value = task
     renderTask()
+}
 
-    console.log(task)
+function deleteTask(index) {
+
+    if (confirm("Are you sure you want to delete this?")) {
+        delete toDos[index]
+        renderTask()
+    }
 }
 
 function renderTask() {
@@ -43,7 +49,7 @@ function renderTask() {
                 <input type='checkbox' ${checked} onclick="itemToggle(${index})">
                 ${task.value}
                 <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
-                <button type='button' value='Delete'>Delete</button>
+                <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
             </div>
         `
         }
