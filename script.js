@@ -51,7 +51,6 @@ function createTask() {
 
 
 function deleteTask(index) {
-
     if (confirm("Are you sure you want to delete this?")) {
         delete toDos[index]
         renderTask()
