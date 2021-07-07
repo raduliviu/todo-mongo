@@ -30,7 +30,7 @@ const itemToggle = (index) => {
 function editTask(index) {
     let task = prompt("Change the task:")
     let toDo = toDos[index]
-    if (input === null) {
+    if (task === null) {
         return;
     }
     else if (task !== "") {
@@ -49,7 +49,7 @@ function createTask() {
         done: false,
         value: task
     }
-    if (input === null) {
+    if (task === null) {
         return;
     }
     else if (task !== "") {
