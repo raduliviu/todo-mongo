@@ -1,5 +1,6 @@
 const toDoListElement = document.getElementById("toDoList")
 const doneListElement = document.getElementById("doneTasks")
+const countersElement = document.getElementById("counters")
 
 const toDos = [
     toDo1 = {
@@ -17,9 +18,9 @@ const toDos = [
 
 ]
 
-const doneT = toDos.filter(toDo => toDo.done === true)
+let doneT = toDos.filter(toDo => toDo.done === true)
 
-const openT = toDos.filter(toDo => toDo.done === false)
+let openT = toDos.filter(toDo => toDo.done === false)
 
 const itemToggle = (index) => {
     let toDo = toDos[index]
@@ -69,6 +70,10 @@ function deleteTask(index) {
 function renderTask() {
     toDoListElement.innerHTML = ''
     doneListElement.innerHTML = ''
+    countersElement.innerHTML = ''
+
+    doneT = toDos.filter(toDo => toDo.done === true)
+    openT = toDos.filter(toDo => toDo.done === false)
     toDos.forEach(
         (task, index) => {
             const checked = task.done ? 'checked' : ''
@@ -92,8 +97,20 @@ function renderTask() {
                     </div>
                 `
             }
+        
         }
     )
+    counters()
+
+    
+}
+function counters() {
+    countersElement.innerHTML += `
+    <div>${doneT.length} done Tasks</div>
+    <div>${openT.length} open Tasks</div>
+    <div>${openT.length + doneT.length} all Tasks</div>
+
+    `
 }
 
 
@@ -116,6 +133,5 @@ function renderTask() {
 //         }
 //     )
 // }
-
 renderTask(toDos)
 // doneTask(doneT)
