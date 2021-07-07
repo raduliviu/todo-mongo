@@ -17,6 +17,10 @@ const toDos = [
 
 ]
 
+const doneT = toDos.filter(toDo => toDo.done === true)
+
+const openT = toDos.filter(toDo => toDo.done === false)
+
 const itemToggle = (index) => {
     let toDo = toDos[index]
     toDo.done = !toDo.done
@@ -29,15 +33,14 @@ function editTask(index) {
     if (input === null) {
         return;
     }
-    else if (task !=="") {
-    toDo.value = task
-}
+    else if (task !== "") {
+        toDo.value = task
+    }
     renderTask()
 }
 
 function done() {
-renderTask(toDos)
-doneTask(doneT)
+    renderTask()
 }
 
 function createTask() {
@@ -49,9 +52,9 @@ function createTask() {
     if (input === null) {
         return;
     }
-    else if (task !==""){
+    else if (task !== "") {
         toDos.push(toDoX)
-    } 
+    }
     renderTask()
 }
 
@@ -65,43 +68,55 @@ function deleteTask(index) {
 
 function renderTask() {
     toDoListElement.innerHTML = ''
+    doneListElement.innerHTML = ''
     toDos.forEach(
         (task, index) => {
             const checked = task.done ? 'checked' : ''
             const taskClass = task.done ? 'done' : ''
 
-            toDoListElement.innerHTML += `
-            <div class='taskItem ${taskClass}'>
-                <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
-                ${task.value}
-                <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
-                <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
-            </div>
-        `
+            if (task.done === false) {
+                toDoListElement.innerHTML += `
+                    <div class='taskItem ${taskClass}'>
+                        <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
+                        ${task.value}
+                        <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
+                        <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+                    </div>
+                `
+            } else if (task.done === true) {
+                doneListElement.innerHTML += `
+                    <div class='taskItem ${taskClass}'>
+                        <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
+                        ${task.value}
+                        <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
+                        <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+                    </div>
+                `
+            }
         }
     )
 }
-let doneT = toDos.filter(toDo => toDo.done === true)
 
-function doneTask() {
-    doneT = toDos.filter(toDo => toDo.done === true)
-    doneListElement.innerHTML = ''
-    doneT.forEach(
-        (task, index) => {
-            const checked = task.done ? 'checked' : ''
-            const taskClass = task.done ? 'done' : ''
-            
-            doneListElement.innerHTML += `
-            <div class='taskItem ${taskClass}'>
-                <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
-                ${task.value}
-                <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
-                <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
-            </div>
-        `
-        }
-    )
-}
+
+// function doneTask() {
+//     doneT = toDos.filter(toDo => toDo.done === true)
+//     doneListElement.innerHTML = ''
+//     doneT.forEach(
+//         (task, index) => {
+//             const checked = task.done ? 'checked' : ''
+//             const taskClass = task.done ? 'done' : ''
+
+//             doneListElement.innerHTML += `
+//             <div class='taskItem ${taskClass}'>
+//                 <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
+//                 ${task.value}
+//                 <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
+//                 <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+//             </div>
+//         `
+//         }
+//     )
+// }
 
 renderTask(toDos)
-doneTask(doneT)
+// doneTask(doneT)
