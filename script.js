@@ -33,8 +33,7 @@ function editTask(index) {
     let toDo = toDos[index]
     if (task === null) {
         return;
-    }
-    else if (task !== "") {
+    } else if (task !== "") {
         toDo.value = task
     }
     renderTask()
@@ -52,8 +51,7 @@ function createTask() {
     }
     if (task === null) {
         return;
-    }
-    else if (task !== "") {
+    } else if (task !== "") {
         toDos.push(toDoX)
     }
     renderTask()
@@ -82,28 +80,37 @@ function renderTask() {
             if (task.done === false) {
                 toDoListElement.innerHTML += `
                     <div class='taskItem ${taskClass}'>
-                        <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
-                        ${task.value}
-                        <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
-                        <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+                        <div class="taskCheck">
+                            <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
+                            ${task.value}
+                        </div>
+                        <div class="buttons">
+                            <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
+                            <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+                        </div>
                     </div>
                 `
             } else if (task.done === true) {
                 doneListElement.innerHTML += `
                     <div class='taskItem ${taskClass}'>
-                        <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
-                        ${task.value}
-                        <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+                        <div class="taskCheck">
+                            <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
+                            ${task.value}
+                        </div>
+                        <div class="buttons">
+                            <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+                        </div>
                     </div>
                 `
             }
-        
+
         }
     )
     counters()
 
-    
+
 }
+
 function counters() {
     countersElement.innerHTML += `
     <div>${doneT.length} done Tasks</div>
@@ -134,4 +141,4 @@ function counters() {
 //     )
 // }
 renderTask(toDos)
-// doneTask(doneT)
+    // doneTask(doneT)

@@ -1,3 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Heebo', sans-serif;
+}
+
 .done {
     text-decoration: line-through;
+}
+
+.tasksFlex {
+    display: flex
+}
+
+.tasksContainer {
+    width: 40%;
+}
+
+.tasksFlex>div {
+    padding: 1rem
+}
+
+.doneTasks {
+    width: 40%;
+}
+
+.counters {
+    width: 20%;
+}
+
+.taskItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskItem button {
+    align-self: flex-end;
 }

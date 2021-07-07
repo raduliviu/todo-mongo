@@ -6,22 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Our To-Do-List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>Our To-Do-List</header>
-    <main>
-        <div class="taskscontainer">
-            <div class="tasksheading">
-            </div>
+    <header>
+        <h1>Our To-Do-List</h1>
+    </header>
+    <main class="tasksFlex">
+        <div class="tasksContainer">
             <div class="tasks" id="toDoList">
             </div>
             <button type="button" id="createTask" onclick="createTask()">Add</button>
         </div>
-        <div id="doneTasks"></div>
+        <div id="doneTasks" class="doneTasks"></div>
 
-        <div id="counters">
+        <div id="counters" class="counters">
 
         </div>
     </main>
