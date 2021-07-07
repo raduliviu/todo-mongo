@@ -88,7 +88,6 @@ function renderTask() {
                     <div class='taskItem ${taskClass}'>
                         <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
                         ${task.value}
-                        <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
                         <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
                     </div>
                 `
