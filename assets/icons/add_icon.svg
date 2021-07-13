@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="203" height="261" viewBox="0 0 203 261">
+  <defs>
+    <clipPath id="clip-add_icon_">
+      <rect width="203" height="261"/>
+    </clipPath>
+  </defs>
+  <g id="add_icon_" data-name="add_icon " clip-path="url(#clip-add_icon_)">
+    <rect width="203" height="261" fill="#fff"/>
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(10 39)" fill="#fff" stroke="#518cf2" stroke-width="14">
+      <circle cx="91.5" cy="91.5" r="91.5" stroke="none"/>
+      <circle cx="91.5" cy="91.5" r="84.5" fill="none"/>
+    </g>
+    <line id="Line_5" data-name="Line 5" x2="104" transform="translate(48.5 130.5)" fill="none" stroke="#518cf2" stroke-linecap="round" stroke-width="14"/>
+    <line id="Line_6" data-name="Line 6" y2="104" transform="translate(101.5 78.5)" fill="none" stroke="#518cf2" stroke-linecap="round" stroke-width="14"/>
+  </g>
+</svg>

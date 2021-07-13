@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="203" height="261" viewBox="0 0 203 261">
+  <defs>
+    <clipPath id="clip-edit_icon">
+      <rect width="203" height="261"/>
+    </clipPath>
+  </defs>
+  <g id="edit_icon" clip-path="url(#clip-edit_icon)">
+    <rect width="203" height="261" fill="#fff"/>
+    <g id="Group_3" data-name="Group 3" transform="translate(21.365 -28.233) rotate(16)">
+      <g id="Rectangle_3" data-name="Rectangle 3" transform="matrix(0.899, 0.438, -0.438, 0.899, 155.364, 0)" fill="#fff" stroke="#518cf2" stroke-width="14">
+        <path d="M26.5,0h0A26.5,26.5,0,0,1,53,26.5V209a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V26.5A26.5,26.5,0,0,1,26.5,0Z" stroke="none"/>
+        <path d="M26.5,7h0A19.5,19.5,0,0,1,46,26.5V196.065A5.935,5.935,0,0,1,40.065,202H12.935A5.935,5.935,0,0,1,7,196.065V26.5A19.5,19.5,0,0,1,26.5,7Z" fill="none"/>
+      </g>
+      <g id="Polygon_1" data-name="Polygon 1" transform="matrix(-0.899, -0.438, 0.438, -0.899, 87.042, 261.579)" fill="#518cf2">
+        <path d="M 42.49283218383789 49.73611450195313 L 11.04249000549316 49.73611450195313 L 26.76766014099121 16.40540313720703 L 42.49283218383789 49.73611450195313 Z" stroke="none"/>
+        <path d="M 26.76766014099121 32.81083679199219 L 22.08498954772949 42.73612213134766 L 31.45033073425293 42.73612213134766 L 26.76766014099121 32.81083679199219 M 26.76766014099121 -3.814697265625e-06 L 53.53532791137695 56.73611831665039 L -7.62939453125e-06 56.73611831665039 L 26.76766014099121 -3.814697265625e-06 Z" stroke="none" fill="#518cf2"/>
+      </g>
+    </g>
+    <line id="Line_4" data-name="Line 4" x2="31.695" y2="29.244" transform="translate(144.805 51.256)" fill="none" stroke="#518cf2" stroke-width="14"/>
+  </g>
+</svg>

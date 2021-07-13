@@ -18,14 +18,25 @@
     </header>
     <main class="tasksFlex">
         <div class="tasksContainer">
+            <div class="openTasks">
+                <h3>Open</h3>
+                <div type="button" class="icon add" id="createTask" onclick="createTask()"></div>
+            </div>
+
             <div class="tasks" id="toDoList">
             </div>
-            <button type="button" id="createTask" onclick="createTask()">Add</button>
         </div>
-        <div id="doneTasks" class="doneTasks"></div>
 
-        <div id="counters" class="counters">
+        <div class="doneContainer">
+            <h3>Finished</h3>
+            <div id="doneTasks" class="doneTasks">
+            </div>
+        </div>
 
+        <div class="statsContainer">
+            <h3>Stats</h3>
+            <div id="counters" class="counters">
+            </div>
         </div>
     </main>
 

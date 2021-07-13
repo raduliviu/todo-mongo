@@ -80,25 +80,27 @@ function renderTask() {
             if (task.done === false) {
                 toDoListElement.innerHTML += `
                     <div class='taskItem ${taskClass}'>
-                        <div class="taskCheck">
+                        <label class="container taskCheck">
                             <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
                             ${task.value}
-                        </div>
+                            <span class="checkmark"></span>
+                        </label>
                         <div class="buttons">
-                            <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
-                            <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
-                        </div>
+                            <div type='button' value='Edit' class="icon edit" onclick="editTask(${index});"></div>
+                            <div type='button' value='Delete' class="icon delete" onclick="deleteTask(${index})"></div>
+                        </label>
                     </div>
                 `
             } else if (task.done === true) {
                 doneListElement.innerHTML += `
                     <div class='taskItem ${taskClass}'>
-                        <div class="taskCheck">
+                        <label class="container taskCheck">
                             <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
                             ${task.value}
-                        </div>
+                            <span class="checkmark"></span>
+                        </label>
                         <div class="buttons">
-                            <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
+                            <div type='button' value='Delete' class="icon delete" onclick="deleteTask(${index})"></div>
                         </div>
                     </div>
                 `
@@ -113,9 +115,9 @@ function renderTask() {
 
 function counters() {
     countersElement.innerHTML += `
-    <div>${doneT.length} done Tasks</div>
-    <div>${openT.length} open Tasks</div>
-    <div>${openT.length + doneT.length} all Tasks</div>
+    <div class="count"><strong> ${openT.length}</strong> <br>  open Tasks</div>
+    <div class="count"><strong> ${doneT.length}</strong> <br> done Tasks</div>
+    <div class="count"><strong> ${openT.length + doneT.length}</strong> <br>  all Tasks</div>
 
     `
 }
