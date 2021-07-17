@@ -21,10 +21,6 @@ const itemToggle = (index) => {
 }
 
 
-function createDark() {
-//    toggleDarkMode()   
-    console.log("Dark Mode was toggled")
- }
 
 function editTask(index) {
     renderTask()
@@ -163,6 +159,7 @@ function renderDarkMode() {
     let darkModeStorage = window.localStorage.getItem("darkMode") === "true"
     if (darkModeStorage) {
         bodyElement.classList.add('darkMode')
+        document.querySelector("#darkMode").checked = true
     } else {
         bodyElement.classList.remove('darkMode')
     }
