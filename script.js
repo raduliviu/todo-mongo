@@ -21,14 +21,23 @@ const itemToggle = (index) => {
 }
 
 function editTask(index) {
-    let task = prompt("Change the task:")
-    let toDo = toDos[index]
-    if (task === null) {
-        return;
-    } else if (task !== "") {
-        toDo.value = task
-    }
     renderTask()
+    let editRow = document.getElementById("taskIndex" +index)
+    editRow.innerHTML = `
+    <div class="editWrapper">
+    <input type="text" id="editBox" value="${toDos[index].value}">
+    <button onclick="saveEdit(${index})" type="button">save</button>
+    <button onclick="renderTask()" type="button">cancel</button>
+    </div>
+    `
+}
+function saveEdit(id) {
+    if (!document.getElementById("editBox").value) {
+        return
+    }
+    toDos[id].value = document.getElementById("editBox").value
+    renderTask()
+
 }
 
 function done() {
@@ -76,7 +85,7 @@ function renderTask() {
 
             if (task.done === false) {
                 toDoListElement.innerHTML += `
-                    <div class='taskItem ${taskClass}'>
+                    <div class='taskItem ${taskClass}' id="taskIndex${index}">
                         <label class="container taskCheck">
                             <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
                             ${task.value}
