@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="203" height="261" viewBox="0 0 203 261">
+  <defs>
+    <clipPath id="clip-save_icon">
+      <rect width="203" height="261"/>
+    </clipPath>
+  </defs>
+  <g id="save_icon" clip-path="url(#clip-save_icon)">
+    <g id="Group_5" data-name="Group 5" transform="translate(-8.311 1.439)">
+      <g id="Path_2" data-name="Path 2" transform="translate(24.139 35.656)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M42.206,0H171.345V186.809H0V47.981Z" stroke="none"/>
+        <path d="M 42.20584106445313 -1.52587890625e-05 L 0 47.98117065429688 L 0 186.8094024658203 L 171.3448333740234 186.8094024658203 L 171.3448333740234 -1.52587890625e-05 L 42.20584106445313 -1.52587890625e-05 M 42.20584106445313 -14.00001525878906 L 171.3448333740234 -14.00001525878906 C 179.0768432617188 -14.00001525878906 185.3448333740234 -7.732025146484375 185.3448333740234 -1.52587890625e-05 L 185.3448333740234 186.8094024658203 C 185.3448333740234 194.5413970947266 179.0768432617188 200.8094024658203 171.3448333740234 200.8094024658203 L 0 200.8094024658203 C -7.732009887695313 200.8094024658203 -14 194.5413970947266 -14 186.8094024658203 L -14 47.98117065429688 C -14 44.57743835449219 -12.760009765625 41.29025268554688 -10.51188659667969 38.73455810546875 L 31.69395446777344 -9.24664306640625 C 34.35188293457031 -12.26829528808594 38.18153381347656 -14.00001525878906 42.20584106445313 -14.00001525878906 Z" stroke="none" fill="#518cf2"/>
+      </g>
+      <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(56.101 133.491)" fill="none" stroke="#518cf2" stroke-width="14">
+        <rect width="107.421" height="65.338" rx="19" stroke="none"/>
+        <rect x="7" y="7" width="93.421" height="51.338" rx="12" fill="none"/>
+      </g>
+      <line id="Line_7" data-name="Line 7" x2="81" transform="translate(69.622 74.622)" fill="none" stroke="#518cf2" stroke-linecap="round" stroke-width="14"/>
+      <line id="Line_8" data-name="Line 8" x2="81" transform="translate(69.622 102.622)" fill="none" stroke="#518cf2" stroke-linecap="round" stroke-width="14"/>
+    </g>
+  </g>
+</svg>
