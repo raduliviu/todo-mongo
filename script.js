@@ -20,6 +20,12 @@ const itemToggle = (index) => {
     renderTask()
 }
 
+
+function createDark() {
+//    toggleDarkMode()   
+    console.log("Dark Mode was toggled")
+ }
+
 function editTask(index) {
     renderTask()
     let editRow = document.getElementById("taskIndex" +index)
