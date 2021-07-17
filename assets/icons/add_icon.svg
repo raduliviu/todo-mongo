@@ -5,8 +5,7 @@
     </clipPath>
   </defs>
   <g id="add_icon_" data-name="add_icon " clip-path="url(#clip-add_icon_)">
-    <rect width="203" height="261" fill="#fff"/>
-    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(10 39)" fill="#fff" stroke="#518cf2" stroke-width="14">
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(10 39)" fill="none" stroke="#518cf2" stroke-width="14">
       <circle cx="91.5" cy="91.5" r="91.5" stroke="none"/>
       <circle cx="91.5" cy="91.5" r="84.5" fill="none"/>
     </g>

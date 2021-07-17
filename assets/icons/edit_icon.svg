@@ -5,9 +5,8 @@
     </clipPath>
   </defs>
   <g id="edit_icon" clip-path="url(#clip-edit_icon)">
-    <rect width="203" height="261" fill="#fff"/>
     <g id="Group_3" data-name="Group 3" transform="translate(21.365 -28.233) rotate(16)">
-      <g id="Rectangle_3" data-name="Rectangle 3" transform="matrix(0.899, 0.438, -0.438, 0.899, 155.364, 0)" fill="#fff" stroke="#518cf2" stroke-width="14">
+      <g id="Rectangle_3" data-name="Rectangle 3" transform="matrix(0.899, 0.438, -0.438, 0.899, 155.364, 0)" fill="none" stroke="#518cf2" stroke-width="14">
         <path d="M26.5,0h0A26.5,26.5,0,0,1,53,26.5V209a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V26.5A26.5,26.5,0,0,1,26.5,0Z" stroke="none"/>
         <path d="M26.5,7h0A19.5,19.5,0,0,1,46,26.5V196.065A5.935,5.935,0,0,1,40.065,202H12.935A5.935,5.935,0,0,1,7,196.065V26.5A19.5,19.5,0,0,1,26.5,7Z" fill="none"/>
       </g>
