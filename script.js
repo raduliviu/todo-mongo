@@ -157,3 +157,21 @@ function counters() {
 // }
 renderTask(toDos)
     // doneTask(doneT)
+
+function renderDarkMode() {
+    const bodyElement = document.getElementsByTagName('body')[0]
+    let darkModeStorage = window.localStorage.getItem("darkMode") === "true"
+    if (darkModeStorage) {
+        bodyElement.classList.add('darkMode')
+    } else {
+        bodyElement.classList.remove('darkMode')
+    }
+}
+
+function toggleDarkMode(){
+    let darkModeStorage = window.localStorage.getItem("darkMode") === "true"
+    window.localStorage.setItem("darkMode", !darkModeStorage)
+    renderDarkMode()
+}
+
+renderDarkMode()
