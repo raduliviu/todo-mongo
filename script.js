@@ -20,6 +20,8 @@ const itemToggle = (index) => {
     renderTask()
 }
 
+
+
 function editTask(index) {
     renderTask()
     let editRow = document.getElementById("taskIndex" + index)
@@ -168,3 +170,22 @@ function counters() {
 // }
 renderTask(toDos)
     // doneTask(doneT)
+
+function renderDarkMode() {
+    const bodyElement = document.getElementsByTagName('body')[0]
+    let darkModeStorage = window.localStorage.getItem("darkMode") === "true"
+    if (darkModeStorage) {
+        bodyElement.classList.add('darkMode')
+        document.querySelector("#darkMode").checked = true
+    } else {
+        bodyElement.classList.remove('darkMode')
+    }
+}
+
+function toggleDarkMode(){
+    let darkModeStorage = window.localStorage.getItem("darkMode") === "true"
+    window.localStorage.setItem("darkMode", !darkModeStorage)
+    renderDarkMode()
+}
+
+renderDarkMode()

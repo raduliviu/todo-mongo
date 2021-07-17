@@ -1,12 +1,15 @@
 * {
     padding: 0;
     margin: 0;
+}
+
+body {
     font-family: 'Heebo', sans-serif;
     color: #444
 }
 
 header {
-    padding: 2rem 0rem 0rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
 }
 
 .done {
@@ -275,4 +278,13 @@ header {
     width: 55%;
     outline: none;
     font-size: 18px;
+}
+
+.darkMode {
+    color: #eee;
+    background: #121212;
+}
+
+.darkMode a {
+    color: #809fff
 }
