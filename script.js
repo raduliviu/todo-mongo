@@ -20,6 +20,8 @@ const itemToggle = (index) => {
     renderTask()
 }
 
+
+
 function editTask(index) {
     renderTask()
     let editRow = document.getElementById("taskIndex" +index)
@@ -157,6 +159,7 @@ function renderDarkMode() {
     let darkModeStorage = window.localStorage.getItem("darkMode") === "true"
     if (darkModeStorage) {
         bodyElement.classList.add('darkMode')
+        document.querySelector("#darkMode").checked = true
     } else {
         bodyElement.classList.remove('darkMode')
     }
