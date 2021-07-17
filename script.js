@@ -105,6 +105,7 @@ function renderTask() {
         }
     )
     counters()
+    window.localStorage.setItem("toDoTasks", JSON.stringify(toDos));
 
 
 }
