@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    
 }
 
 body {
@@ -12,8 +11,6 @@ body {
 header {
     padding: 2rem 2rem 2rem 2rem;
 }
-
-
 
 .done {
     text-decoration: line-through;
@@ -129,6 +126,14 @@ header {
 
 .edit {
     background-image: url(./assets/icons/edit_icon.svg);
+}
+
+.abort {
+    background-image: url(./assets/icons/abort_icon.svg);
+}
+
+.save {
+    background-image: url(./assets/icons/save_icon.svg);
 }
 
 
@@ -259,6 +264,20 @@ header {
         justify-content: space-evenly;
         align-items: baseline;
     }
+}
+
+.editWrapper {
+    display: flex;
+}
+
+.editWrapper>div>input {
+    border-radius: 1.5rem;
+    border: solid 1px #518cf2;
+    padding: 0.2rem 1rem;
+    margin-right: 1rem;
+    width: 55%;
+    outline: none;
+    font-size: 18px;
 }
 
 .darkMode {

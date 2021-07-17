@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="203" height="261" viewBox="0 0 203 261">
+  <defs>
+    <clipPath id="clip-abort_icon">
+      <rect width="203" height="261"/>
+    </clipPath>
+  </defs>
+  <g id="abort_icon" clip-path="url(#clip-abort_icon)">
+    <line id="Line_9" data-name="Line 9" x2="148" y2="148" transform="translate(27.5 56.5)" fill="none" stroke="#518cf2" stroke-linecap="round" stroke-width="14"/>
+    <line id="Line_10" data-name="Line 10" x2="148" y2="148" transform="translate(175.5 56.5) rotate(90)" fill="none" stroke="#518cf2" stroke-linecap="round" stroke-width="14"/>
+  </g>
+</svg>

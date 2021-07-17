@@ -24,15 +24,32 @@ const itemToggle = (index) => {
 
 function editTask(index) {
     renderTask()
-    let editRow = document.getElementById("taskIndex" +index)
+    let editRow = document.getElementById("taskIndex" + index)
     editRow.innerHTML = `
     <div class="editWrapper">
+    <div>
     <input type="text" id="editBox" value="${toDos[index].value}">
-    <button onclick="saveEdit(${index})" type="button">save</button>
-    <button onclick="renderTask()" type="button">cancel</button>
+    </div>
+    </div>
+    <div class="buttons">
+    <div onclick="saveEdit(${index})" class="icon save" type="button"></div>
+    <div onclick="renderTask()" class="icon abort" type="button"></div>
     </div>
     `
+    document.getElementById("editBox").addEventListener("keydown", function(e) {
+        if (e.keyCode === 13) {
+            saveEdit(index);
+        }
+    });
 }
+
+
+function enterEdit(enter) {
+    if (enter.keyCode === 13) {
+        saveEdit();
+    }
+}
+
 function saveEdit(id) {
     if (!document.getElementById("editBox").value) {
         return
