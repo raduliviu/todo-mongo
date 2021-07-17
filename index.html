@@ -17,23 +17,26 @@
         <h1>Our To-Do-List</h1>
     </header>
     <main class="tasksFlex">
-        <div class="tasksContainer">
-            <div class="openTasks">
-                <h3>Open</h3>
-                <div class="taskForm">
-                    <input type="text" id="taskBox">
-                    <div type="button" class="icon add" id="createTask" onclick="createTask()"></div>
+        <div class="tasksWrapper">
+            <div class="tasksContainer">
+                <div class="openTasks">
+                    <h3>Open</h3>
+                    <div class="taskForm">
+                        <input type="text" id="taskBox">
+                        <div type="button" class="icon add" id="createTask" onclick="createTask()"></div>
                     </div>
                 </div>
 
-            <div class="tasks" id="toDoList">
+                <div class="tasks" id="toDoList">
+                </div>
+            </div>
+
+            <div class="doneContainer">
+                <h3>Finished</h3>
+                <div id="doneTasks" class="doneTasks">
+                </div>
             </div>
         </div>
-
-        <div class="doneContainer">
-            <h3>Finished</h3>
-            <div id="doneTasks" class="doneTasks">
-            </div>
         </div>
 
         <div class="statsContainer">

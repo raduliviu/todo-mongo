@@ -17,26 +17,34 @@ header {
     display: flex
 }
 
-.tasksContainer {
-    width: 40%;
+.tasksWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.tasksFlex>div {
+.doneContainer,
+.tasksContainer,
+.statsContainer {
     padding: 1rem;
-    margin: 2rem;
     border: 2px solid #518cf2;
     border-radius: 1rem;
 }
 
-.doneTasks {}
+.tasksWrapper,
+.statsContainer {
+    margin: 2rem;
+}
 
+.tasksContainer,
 .doneContainer {
-    width: 40%;
+    width: 45%;
 }
 
 .statsContainer {
     width: 20%;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .counters {
@@ -87,7 +95,8 @@ header {
     display: flex;
 }
 
-.openTasks {
+.openTasks,
+.doneContainer>h3 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -200,4 +209,48 @@ header {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+@media screen and (max-width: 1280px) {
+    .tasksFlex {
+        flex-flow: column;
+    }
+    .statsContainer {
+        width: 90%;
+    }
+    .tasksWrapper,
+    .statsContainer {
+        margin: auto
+    }
+    .tasksWrapper {
+        width: 90%;
+    }
+    .tasksWrapper>div {
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tasksWrapper {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .doneContainer,
+    .tasksContainer {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 768px) {
+    .doneContainer,
+    .tasksContainer {
+        width: 44%
+    }
+    .counters {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: baseline;
+    }
 }
