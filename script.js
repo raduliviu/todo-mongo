@@ -2,21 +2,13 @@ const toDoListElement = document.getElementById("toDoList")
 const doneListElement = document.getElementById("doneTasks")
 const countersElement = document.getElementById("counters")
 
-const toDos = [
-    toDo1 = {
-        done: true,
-        value: 'Take out the trash'
-    },
-    toDo2 = {
-        done: false,
-        value: 'Walk the dog'
-    },
-    toDo3 = {
-        done: true,
-        value: 'Go outside'
-    }
+let toDos = []
+const storedData = window.localStorage.getItem("toDoTasks")
+if (storedData) {
+    toDos = JSON.parse(storedData);
 
-]
+}
+console.log(toDos)
 
 let doneT = toDos.filter(toDo => toDo.done === true)
 
@@ -44,7 +36,8 @@ function done() {
 }
 
 function createTask() {
-    let task = prompt("Add your new task")
+    let taskBox = document.getElementById("taskBox");
+    let task = taskBox.value;
     let toDoX = {
         done: false,
         value: task
@@ -55,7 +48,10 @@ function createTask() {
         toDos.push(toDoX)
     }
     renderTask()
+    taskBox.value = "";
+    window.localStorage.setItem("toDoTasks", JSON.stringify(toDos));
 }
+
 
 
 function deleteTask(index) {
@@ -109,6 +105,7 @@ function renderTask() {
         }
     )
     counters()
+    window.localStorage.setItem("toDoTasks", JSON.stringify(toDos));
 
 
 }
