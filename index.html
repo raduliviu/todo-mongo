@@ -21,7 +21,10 @@
             <div class="tasksContainer">
                 <div class="openTasks">
                     <h3>Open</h3>
-                    <div type="button" class="icon add" id="createTask" onclick="createTask()"></div>
+                    <div class="taskForm">
+                        <input type="text" id="taskBox">
+                        <div type="button" class="icon add" id="createTask" onclick="createTask()"></div>
+                    </div>
                 </div>
 
                 <div class="tasks" id="toDoList">
@@ -34,6 +37,8 @@
                 </div>
             </div>
         </div>
+        </div>
+
         <div class="statsContainer">
             <h3>Stats</h3>
             <div id="counters" class="counters">
