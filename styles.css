@@ -289,6 +289,73 @@ header {
     color: #809fff
 }
 
+/* Modal Window */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+  }
+
+  .modalContent {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    padding: 2rem;
+    text-align: center;
+  }
+
+  /* The Modal Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+
+  .cancelbtn, .confirmbtn {
+      padding: 1rem 2rem;
+      border: 0;
+      opacity: 0.8;
+  }
+
+  .cancelbtn {
+    background-color: #ccc;
+    color: black;
+  }
+
+  .confirmbtn {
+    background-color: #f44336;
+  }
+
+  .cancelbtn:hover, .confirmbtn:hover {
+      cursor: pointer;
+      opacity: 1;
+  }
+
+  @media screen and (max-width: 378px) {
+    .cancelbtn, .confirmbtn {
+       width: 100%;
+       margin-bottom: 2rem;
+       padding: 2rem 4rem;
+    }
+  }
 .noTaskLeft {
     max-width: 100%;
     display: block;

@@ -86,11 +86,10 @@ function createTask() {
 
 
 function deleteTask(index) {
-    if (confirm("Are you sure you want to delete this?")) {
         delete toDos[index]
         toDos = toDos.filter(toDo => toDo)
         renderTask()
-    }
+        closeModal()
 }
 
 function noOpen() {
@@ -132,7 +131,7 @@ function renderTask() {
                         </label>
                         <div class="buttons">
                             <div type='button' value='Edit' class="icon edit" onclick="editTask(${index});"></div>
-                            <div type='button' value='Delete' class="icon delete" onclick="deleteTask(${index})"></div>
+                            <div type='button' value='Delete' class="icon delete" onclick="displayModal(${index})"></div>
                         </label>
                     </div>
                 `
@@ -145,7 +144,7 @@ function renderTask() {
                             <span class="checkmark"></span>
                         </label>
                         <div class="buttons">
-                            <div type='button' value='Delete' class="icon delete" onclick="deleteTask(${index})"></div>
+                        <div type='button' value='Delete' class="icon delete" onclick="displayModal(${index})"></div>
                         </div>
                     </div>
                 `
@@ -209,3 +208,30 @@ function toggleDarkMode() {
 }
 
 renderDarkMode()
+
+// Modal Window
+
+let modal = document.getElementById('deleteTaskModal')
+let confirmBtn = document.getElementById('confirm')
+
+function displayModal(index) {
+    if (modal.style.display='none') {
+        modal.style.display='block'
+    }
+    confirmBtn.onclick = function() {
+        deleteTask(index)
+    }
+}
+
+function closeModal() {
+    if (modal.style.display='block') {
+        modal.style.display='none'
+    }
+}
+
+// Close the modal when clicking outside it
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
