@@ -43,13 +43,6 @@ function editTask(index) {
     });
 }
 
-
-function enterEdit(enter) {
-    if (enter.keyCode === 13) {
-        saveEdit();
-    }
-}
-
 function saveEdit(id) {
     if (!document.getElementById("editBox").value) {
         return
@@ -63,6 +56,13 @@ function done() {
     renderTask()
 }
 
+
+document.getElementById("taskBox").addEventListener("keydown", function(e) {
+    if (e.keyCode === 13) {
+        createTask();
+    }
+});
+
 function createTask() {
     let taskBox = document.getElementById("taskBox");
     let task = taskBox.value;
@@ -75,6 +75,8 @@ function createTask() {
     } else if (task !== "") {
         toDos.push(toDoX)
     }
+
+
     renderTask()
     taskBox.value = "";
     window.localStorage.setItem("toDoTasks", JSON.stringify(toDos));
@@ -89,6 +91,23 @@ function deleteTask(index) {
         renderTask()
     }
 }
+
+function noOpen() {
+    if (openT.length == 0) {
+        toDoListElement.innerHTML += `
+        <div class="noTaskLeft noOpen"></div>
+        `
+    }
+}
+
+function noClosed() {
+    if (doneT.length == 0) {
+        doneListElement.innerHTML += `
+        <div class="noTaskLeft noClosed"></div>
+        `
+    }
+}
+
 
 function renderTask() {
     toDoListElement.innerHTML = ''
@@ -135,8 +154,8 @@ function renderTask() {
     )
     counters()
     window.localStorage.setItem("toDoTasks", JSON.stringify(toDos));
-
-
+    noOpen()
+    noClosed()
 }
 
 function counters() {
@@ -182,7 +201,7 @@ function renderDarkMode() {
     }
 }
 
-function toggleDarkMode(){
+function toggleDarkMode() {
     let darkModeStorage = window.localStorage.getItem("darkMode") === "true"
     window.localStorage.setItem("darkMode", !darkModeStorage)
     renderDarkMode()
