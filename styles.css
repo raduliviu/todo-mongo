@@ -356,3 +356,24 @@ header {
        padding: 2rem 4rem;
     }
   }
+.noTaskLeft {
+    max-width: 100%;
+    display: block;
+    max-height: 100%;
+    width: 30vw;
+    height: 30vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-content: end;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.noOpen {
+    background-image: url(./assets/thumbs_up.jpg);
+}
+
+.noClosed {
+    background-image: url(./assets/thumbs_down.jpg);
+}
