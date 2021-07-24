@@ -36,6 +36,7 @@ function editTask(index) {
     <div onclick="renderTask()" class="icon abort" type="button"></div>
     </div>
     `
+    document.getElementById("editBox").focus()
     document.getElementById("editBox").addEventListener("keydown", function(e) {
         if (e.keyCode === 13) {
             saveEdit(index);
