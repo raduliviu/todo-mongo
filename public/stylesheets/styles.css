@@ -117,23 +117,23 @@ header {
 }
 
 .delete {
-    background-image: url(./assets/icons/delete_icon.svg);
+    background-image: url(../assets/icons/delete_icon.svg);
 }
 
 .add {
-    background-image: url(./assets/icons/add_icon.svg);
+    background-image: url(../assets/icons/add_icon.svg);
 }
 
 .edit {
-    background-image: url(./assets/icons/edit_icon.svg);
+    background-image: url(../assets/icons/edit_icon.svg);
 }
 
 .abort {
-    background-image: url(./assets/icons/abort_icon.svg);
+    background-image: url(../assets/icons/abort_icon.svg);
 }
 
 .save {
-    background-image: url(./assets/icons/save_icon.svg);
+    background-image: url(../assets/icons/save_icon.svg);
 }
 
 
@@ -371,9 +371,9 @@ header {
 }
 
 .noOpen {
-    background-image: url(./assets/thumbs_up.jpg);
+    background-image: url(../assets/thumbs_up.jpg);
 }
 
 .noClosed {
-    background-image: url(./assets/thumbs_down.jpg);
+    background-image: url(../assets/thumbs_down.jpg);
 }
