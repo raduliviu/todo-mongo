@@ -64,7 +64,7 @@ document.getElementById("taskBox").addEventListener("keydown", function(e) {
     }
 });
 
-function createTask() {
+async function createTask() {
     let taskBox = document.getElementById("taskBox");
     let task = taskBox.value;
     let toDoX = {
@@ -74,10 +74,12 @@ function createTask() {
     if (task === null) {
         return;
     } else if (task !== "") {
+        let result = await fetch('/task', {
+            method: "POST",
+            body: JSON.stringify(toDoX)
+        })
         toDos.push(toDoX)
     }
-
-
     renderTask()
     taskBox.value = "";
     window.localStorage.setItem("toDoTasks", JSON.stringify(toDos));
