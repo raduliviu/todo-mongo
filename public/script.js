@@ -5,11 +5,9 @@ const countersElement = document.getElementById("counters")
 let toDos = []
 let doneT = []
 let openT = []
-//const storedData = window.localStorage.getItem("toDoTasks")
 
 async function init() {
     const response = await fetch('/task')
-    let storedData = []
     if (response.ok) {
         toDos = await response.json()
     }
@@ -176,7 +174,6 @@ function renderTask() {
         }
     )
     counters()
-    window.localStorage.setItem("toDoTasks", JSON.stringify(toDos));
     noOpen()
     noClosed()
 }
