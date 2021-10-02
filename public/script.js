@@ -7,11 +7,10 @@ let doneT = []
 let openT = []
 
 async function init() {
-    const response = await fetch('/task')
+    const response = await fetch('https://radu-todo-mongo.herokuapp.com/task')
     if (response.ok) {
         toDos = await response.json()
     }
-
     console.log(toDos)
     doneT = toDos.filter(toDo => toDo.done === true)
     openT = toDos.filter(toDo => toDo.done === false)
