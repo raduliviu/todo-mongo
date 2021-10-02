@@ -3,24 +3,31 @@ const doneListElement = document.getElementById("doneTasks")
 const countersElement = document.getElementById("counters")
 
 let toDos = []
-const storedData = window.localStorage.getItem("toDoTasks")
-if (storedData) {
-    toDos = JSON.parse(storedData);
+let doneT = []
+let openT = []
+//const storedData = window.localStorage.getItem("toDoTasks")
 
+async function init() {
+    const response = await fetch('/task')
+    let storedData = []
+    if (response.ok) {
+        toDos = await response.json()
+    }
+
+    console.log(toDos)
+    doneT = toDos.filter(toDo => toDo.done === true)
+    openT = toDos.filter(toDo => toDo.done === false)
+    renderTask()
 }
-console.log(toDos)
-
-let doneT = toDos.filter(toDo => toDo.done === true)
-
-let openT = toDos.filter(toDo => toDo.done === false)
+//initialise
+init()
 
 const itemToggle = (index) => {
     let toDo = toDos[index]
     toDo.done = !toDo.done
+    _sendUpdate(index)
     renderTask()
 }
-
-
 
 function editTask(index) {
     renderTask()
@@ -37,11 +44,19 @@ function editTask(index) {
     </div>
     `
     document.getElementById("editBox").focus()
-    document.getElementById("editBox").addEventListener("keydown", function(e) {
+    document.getElementById("editBox").addEventListener("keydown", function (e) {
         if (e.keyCode === 13) {
             saveEdit(index);
         }
     });
+}
+
+function _sendUpdate(index) {
+    fetch('/task', {
+        method: "PUT",
+        body: JSON.stringify(toDos[index]),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+    })
 }
 
 function saveEdit(id) {
@@ -49,6 +64,7 @@ function saveEdit(id) {
         return
     }
     toDos[id].value = document.getElementById("editBox").value
+    _sendUpdate(id)
     renderTask()
 
 }
@@ -58,7 +74,7 @@ function done() {
 }
 
 
-document.getElementById("taskBox").addEventListener("keydown", function(e) {
+document.getElementById("taskBox").addEventListener("keydown", function (e) {
     if (e.keyCode === 13) {
         createTask();
     }
@@ -67,31 +83,36 @@ document.getElementById("taskBox").addEventListener("keydown", function(e) {
 async function createTask() {
     let taskBox = document.getElementById("taskBox");
     let task = taskBox.value;
-    let toDoX = {
-        done: false,
-        value: task
-    }
-    if (task === null) {
+    if (!task) {
         return;
-    } else if (task !== "") {
-        let result = await fetch('/task', {
-            method: "POST",
-            body: JSON.stringify(toDoX)
-        })
-        toDos.push(toDoX)
     }
+    let result = await fetch('/task', {
+        method: "POST",
+        body: JSON.stringify({
+            done: false,
+            value: task
+        }),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+    })
+    if (!result.ok) {
+        console.log('Creation failed')
+        return
+    }
+    const toDoObject = await result.json()
+    toDos.push(toDoObject)
     renderTask()
     taskBox.value = "";
-    window.localStorage.setItem("toDoTasks", JSON.stringify(toDos));
 }
 
-
-
 function deleteTask(index) {
-        delete toDos[index]
-        toDos = toDos.filter(toDo => toDo)
-        renderTask()
-        closeModal()
+    const taskId = toDos[index]._id
+    delete toDos[index]
+    toDos = toDos.filter(toDo => toDo)
+    fetch(`/task/${taskId}`, {
+        method: "DELETE"
+    })
+    renderTask()
+    closeModal()
 }
 
 function noOpen() {
@@ -169,28 +190,8 @@ function counters() {
     `
 }
 
-
-// function doneTask() {
-//     doneT = toDos.filter(toDo => toDo.done === true)
-//     doneListElement.innerHTML = ''
-//     doneT.forEach(
-//         (task, index) => {
-//             const checked = task.done ? 'checked' : ''
-//             const taskClass = task.done ? 'done' : ''
-
-//             doneListElement.innerHTML += `
-//             <div class='taskItem ${taskClass}'>
-//                 <input type='checkbox' ${checked} onclick="itemToggle(${index});done()">
-//                 ${task.value}
-//                 <button type='button' value='Edit' onclick="editTask(${index});">Edit</button>
-//                 <button type='button' value='Delete' onclick="deleteTask(${index})">Delete</button>
-//             </div>
-//         `
-//         }
-//     )
-// }
 renderTask(toDos)
-    // doneTask(doneT)
+// doneTask(doneT)
 
 function renderDarkMode() {
     const bodyElement = document.getElementsByTagName('body')[0]
@@ -217,23 +218,23 @@ let modal = document.getElementById('deleteTaskModal')
 let confirmBtn = document.getElementById('confirm')
 
 function displayModal(index) {
-    if (modal.style.display='none') {
-        modal.style.display='block'
+    if (modal.style.display = 'none') {
+        modal.style.display = 'block'
     }
-    confirmBtn.onclick = function() {
+    confirmBtn.onclick = function () {
         deleteTask(index)
     }
 }
 
 function closeModal() {
-    if (modal.style.display='block') {
-        modal.style.display='none'
+    if (modal.style.display = 'block') {
+        modal.style.display = 'none'
     }
 }
 
 // Close the modal when clicking outside it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+        modal.style.display = "none";
     }
-  }
+}

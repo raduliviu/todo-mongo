@@ -10,6 +10,12 @@ const TaskSchema = new mongoose.Schema({
        required: true
    }
 })
+
+TaskSchema.methods.update = function(taskData) {
+    this.done = taskData.done;
+    this.value = taskData.value;
+    return this.save();
+  }
  
 const Task = mongoose.model("Task", TaskSchema)
  

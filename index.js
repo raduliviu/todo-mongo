@@ -19,7 +19,7 @@ async function addTask(req, res) {
     const newTask = new TaskModel(req.body)
     try {
         await newTask.save()
-        res.send(newTask)
+        res.status(201).send(newTask)
     } catch (err) {
         res.status(406).send(err)
     }
@@ -28,7 +28,29 @@ async function addTask(req, res) {
 async function readTask(req, res) {
     try {
         const tasks = await TaskModel.find({})
-        res.send(tasks)
+        res.status(200).send(tasks)
+    } catch (err) {
+        res.status(406).send(err)
+    }
+}
+
+async function updateTask(req, res) {
+    try {
+        const task = await TaskModel.findById(req.body._id)
+        const result = await task.update(req.body)
+        res.status(200).send(result)
+    } catch (err) {
+        res.status(406).send(err)
+    }
+}
+
+async function deleteTask(req, res) {
+    try {
+        const result = await TaskModel.findByIdAndDelete(req.params.id)
+        if (!result){
+            return res.status(403).send({error: 'Error! Something went wrong!'})
+        }
+        res.status(200).send(result)
     } catch (err) {
         res.status(406).send(err)
     }
@@ -43,4 +65,6 @@ express()
     .get('/', (req, res) => res.render('pages/index'))
     .post("/task", addTask)
     .get("/task", readTask)
+    .put("/task", updateTask)
+    .delete("/task/:id", deleteTask)
     .listen(PORT, () => console.log(`Listening on ${PORT}`))
